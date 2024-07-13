@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
-  `,
-  styles: [],
+  templateUrl: 'app.component.html',
+  styleUrl: 'app.component.css'
 })
 export class AppComponent {
   title = 'app1';
+  model ={name:'', email:''};
+
+  fillForm() {
+    this.model = {name: 'John Doe', email: 'john@doe.com'};
+  }
+
+  handleForm() {
+    console.log('handleForm', this.model);
+  }
 }

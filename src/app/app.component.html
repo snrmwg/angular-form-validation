@@ -1,0 +1,19 @@
+<h1>Welcome to {{title}}!!</h1>
+
+<p><input [(ngModel)]="title" /></p>
+
+<form #myForm="ngForm" (ngSubmit)="handleForm()">
+<p>Name</p>
+<input name="name" required appForbiddenName="bob" [(ngModel)]="model.name" #name="ngModel"/>
+<p [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is invalid {{name.errors | json}}</p>
+<p>E-Mail</p>
+<input name="email" type="email" email appBlacklistDomain [(ngModel)]="model.email" #email="ngModel"/>
+<p *ngIf="email.invalid" class="alert alert-danger">Email is invalid {{email.errors | json}}</p>
+<div>
+  <button type="submit" [disabled]="!myForm.form.valid">Submit</button>
+</div>
+
+</form>
+<button (click)="fillForm()" type="button">Fill</button>
+
+<pre>{{myForm.errors | json}} </pre> 

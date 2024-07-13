@@ -1,0 +1,30 @@
+:host {
+  --c-error: #a94442;
+}
+form {
+  border: 1px solid green;
+  padding: .5em;
+  max-width: 20em;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin: .2em 0;
+  }
+
+  p.alert {
+    font-weight: bold;
+  }
+
+  p.alert-danger {
+    color: var(--c-error);
+  }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid var(--c-error);
+}
